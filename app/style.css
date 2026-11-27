@@ -1,0 +1,448 @@
+/* DealHawk: a dark Black Friday board with amber deal marks. System fonts
+   only, so the site loads nothing from any other origin. */
+
+:root {
+  --bg: #0d0f14;
+  --panel: #161a23;
+  --panel-2: #1d2230;
+  --line: #2a3042;
+  --text: #eef1f6;
+  --muted: #9aa3b5;
+  --amber: #f5b301;
+  --amber-ink: #1a1405;
+  --green: #34d399;
+  --blue: #60a5fa;
+  --red: #f87171;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+a { color: var(--amber); }
+
+.hero {
+  background: linear-gradient(160deg, #17130a 0%, #0d0f14 55%, #101623 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 44px 20px 28px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--amber);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(40px, 7vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  max-width: 720px;
+  margin: 12px 0 0;
+  color: #d5dae4;
+  font-size: 17px;
+}
+
+.checked-line {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.stat {
+  min-width: 120px;
+  padding: 12px 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.stat strong {
+  display: block;
+  font-size: 24px;
+  line-height: 1.1;
+  color: var(--amber);
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+}
+
+.picks h2,
+.detail h3 {
+  margin: 8px 0 12px;
+  font-size: 20px;
+}
+
+.pick-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.pick {
+  display: grid;
+  grid-template-columns: 30px 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.pick:hover { border-color: var(--amber); }
+
+.pick-rank {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  background: var(--amber);
+  border-radius: 50%;
+  color: var(--amber-ink);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.pick-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pick-price { font-weight: 700; }
+.pick-pct { color: var(--green); font-weight: 700; }
+
+.controls-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.controls-inner label {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.controls-inner input,
+.controls-inner select {
+  padding: 9px 10px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.controls-inner input { min-width: 200px; }
+
+.controls-inner button {
+  padding: 9px 14px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.controls-inner button:hover { border-color: var(--amber); color: var(--amber); }
+
+.result-line {
+  margin: 18px 0 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.result-line #result-count { color: var(--text); font-weight: 700; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.card:hover { border-color: #3a435e; }
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: var(--panel-2);
+  border-radius: 9px;
+  color: var(--amber);
+}
+
+.card-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.card-icon.big { width: 52px; height: 52px; }
+.card-icon.big svg { width: 30px; height: 30px; }
+
+.store-badge {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.store-amazon { background: #232f3e; color: #febd69; }
+.store-walmart { background: #0b3d91; color: #fff; }
+.store-best-buy { background: #003da5; color: #ffe000; }
+
+.pct-badge {
+  margin-left: auto;
+  padding: 3px 9px;
+  background: #123524;
+  border-radius: 999px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.pct-badge.big { font-size: 18px; padding: 6px 12px; }
+
+.card-name {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.card-cat { margin: 0; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+.card-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sale { font-size: 26px; font-weight: 800; }
+.sale.big { font-size: 34px; }
+.usual { color: var(--muted); text-decoration: line-through; }
+.usual.big { font-size: 20px; }
+.saved { color: var(--green); font-weight: 700; font-size: 13px; }
+
+.verdict {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.verdict-dot { width: 9px; height: 9px; border-radius: 50%; }
+.verdict-new-low { color: var(--amber); }
+.verdict-new-low .verdict-dot { background: var(--amber); }
+.verdict-strong { color: var(--green); }
+.verdict-strong .verdict-dot { background: var(--green); }
+.verdict-good { color: var(--blue); }
+.verdict-good .verdict-dot { background: var(--blue); }
+.verdict-routine { color: var(--muted); }
+.verdict-routine .verdict-dot { background: var(--muted); }
+
+.verdict-score {
+  margin-left: auto;
+  padding: 2px 8px;
+  background: var(--panel-2);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.evidence { margin: 0; color: #c6cddb; font-size: 13.5px; }
+.evidence.big { font-size: 15px; }
+
+.compare-note {
+  margin: 0;
+  padding: 8px 10px;
+  background: #17130a;
+  border: 1px solid #4a3a10;
+  border-radius: 8px;
+  color: #f3d27a;
+  font-size: 13px;
+}
+
+.checked { margin: 0; color: var(--muted); font-size: 12px; }
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.btn-store,
+.btn-detail {
+  padding: 9px 12px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-store {
+  flex: 1;
+  background: var(--amber);
+  color: var(--amber-ink);
+}
+
+.btn-store:hover { filter: brightness(1.08); }
+
+.btn-detail {
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.btn-detail:hover { border-color: var(--amber); color: var(--amber); }
+
+.detail {
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.detail-back { margin: 0 0 14px; }
+
+.detail-head {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.detail-head h2 { margin: 0; font-size: 24px; line-height: 1.25; }
+
+.detail-prices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin: 20px 0;
+  padding: 16px;
+  background: var(--panel-2);
+  border-radius: 10px;
+}
+
+.detail-prices .lbl {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.detail-prices strong { font-size: 22px; }
+
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 16px;
+  font-size: 14px;
+}
+
+.compare th, .compare td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.compare th { color: var(--muted); font-size: 12px; text-transform: uppercase; }
+
+.detail-actions { margin: 18px 0 0; }
+
+.empty {
+  padding: 40px 20px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.foot {
+  border-top: 1px solid var(--line);
+  background: #0a0c10;
+}
+
+.foot-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 28px 20px 44px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.foot h2 { color: var(--text); font-size: 18px; margin: 0 0 10px; }
+.foot-note { font-size: 12px; }
+
+@media (max-width: 640px) {
+  .hero-inner { padding: 30px 16px 22px; }
+  main { padding: 18px 14px 32px; }
+  .controls-inner input { min-width: 0; width: 100%; }
+  .controls-inner label { flex: 1 1 46%; }
+  .pick { grid-template-columns: 26px 1fr auto; }
+  .pick-pct { display: none; }
+  .detail-head { flex-wrap: wrap; }
+  .stat { min-width: 100px; flex: 1 1 28%; }
+}
